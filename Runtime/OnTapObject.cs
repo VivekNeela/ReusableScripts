@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
-using Unity.IO.LowLevel.Unsafe;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace TMKOC.Rhymes
+namespace TMKOC.Reusable
 {
     public abstract class OnTapObject : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
     {
