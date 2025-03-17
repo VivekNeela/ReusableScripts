@@ -1,3 +1,14 @@
 {
-	"name": "ReusableScripts"
+    "name": "ReusableScripts",
+    "rootNamespace": "TMKOC.Reusable",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
