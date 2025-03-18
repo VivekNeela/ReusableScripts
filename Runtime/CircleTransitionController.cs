@@ -26,7 +26,8 @@ namespace TMKOC.Reusable
             circleRect.sizeDelta = new Vector2(side, side);
 
             // PlayModeExitCallback playModeExitCallback = new PlayModeExitCallback();
-            PlayModeExitCallback.OnExitPlayMode += ResetMat;
+
+            PlayModeExitCallback.transitionMat = transitionMat;
         }
 
 
@@ -63,14 +64,15 @@ namespace TMKOC.Reusable
         }
 
 
-
     }
 
 
     [InitializeOnLoad]
     public class PlayModeExitCallback
     {
+        public static Material transitionMat;
         public static event Action OnExitPlayMode;
+
         static PlayModeExitCallback()
         {
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
@@ -81,7 +83,7 @@ namespace TMKOC.Reusable
             if (state == PlayModeStateChange.ExitingPlayMode)
             {
                 Debug.Log("Exiting Play Mode!");
-                // transitionMat.SetFloat("_Radius", value);
+                transitionMat.SetFloat("_Radius", 1);
                 OnExitPlayMode?.Invoke();
 
             }
