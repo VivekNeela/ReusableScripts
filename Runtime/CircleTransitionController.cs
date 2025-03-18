@@ -25,15 +25,7 @@ namespace TMKOC.Reusable
             var side = canvasSize.x > canvasSize.y ? canvasSize.x : canvasSize.y;
             circleRect.sizeDelta = new Vector2(side, side);
 
-            // PlayModeExitCallback playModeExitCallback = new PlayModeExitCallback();
-
             PlayModeExitCallback.transitionMat = transitionMat;
-        }
-
-
-        private void ResetMat()
-        {
-            transitionMat.SetFloat("_Radius", 1);
         }
 
 
@@ -71,7 +63,6 @@ namespace TMKOC.Reusable
     public class PlayModeExitCallback
     {
         public static Material transitionMat;
-        public static event Action OnExitPlayMode;
 
         static PlayModeExitCallback()
         {
@@ -83,9 +74,7 @@ namespace TMKOC.Reusable
             if (state == PlayModeStateChange.ExitingPlayMode)
             {
                 Debug.Log("Exiting Play Mode!");
-                transitionMat.SetFloat("_Radius", 1);
-                OnExitPlayMode?.Invoke();
-
+                transitionMat.SetFloat("_Radius", 1);   //just needed to do this on exit...
             }
         }
     }
