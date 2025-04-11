@@ -1,8 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace TMKOC.Rhymes
+#if UNITY_EDITOR
+namespace TMKOC.Reusable
 {
+    [InitializeOnLoad]
     internal class EasyShortCutLockInspector : MonoBehaviour
     {
         [MenuItem("Edit/Toggle Inspector Lock %l")]
@@ -19,3 +21,5 @@ namespace TMKOC.Rhymes
         }
     }
 }
+#endif
+// This code adds a shortcut to lock the inspector in Unity.
