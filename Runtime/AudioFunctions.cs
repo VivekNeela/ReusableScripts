@@ -4,21 +4,12 @@ using UnityEngine;
 
 namespace TMKOC.Reusable
 {
-    
-    public class SingletonAudioManager : SingletonMonobehaviour<AudioFunctions>
+    public class AudioFunctions : SingletonMonobehaviour<AudioFunctions>
     {
-        //this exists only to make a the audio functions class a singleton...
-    }
-
-    
-    public class AudioFunctions : MonoBehaviour
-    {
-
         public AudioSource audioSource_BG;
         public AudioSource audioSource;
         [SerializeField] private bool isPlaying;
         public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
-
 
 
         private void Update() => IsPlaying = audioSource.isPlaying;
