@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TMKOC.Reusable
 {
-    public class AudioFunctions : SingletonMonobehaviour<AudioFunctions>
+    public class AudioFunctions : MonoBehaviour
     {
         public AudioSource audioSource_BG;
         public AudioSource audioSource;
