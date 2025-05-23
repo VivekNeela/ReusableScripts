@@ -31,17 +31,17 @@ namespace TMKOC.Reusable
         }
 
 
-        public void CloseCircle()
+        public void CloseCircle(Action callback = null)
         {
-            StartCoroutine(TransitionLerp(1, -0.1f, transitionDuration));
+            StartCoroutine(TransitionLerp(1, -0.1f, transitionDuration, callback));
         }
 
-        public void OpenCircle()
+        public void OpenCircle(Action callback = null)
         {
-            StartCoroutine(TransitionLerp(-0.1f, 1f, transitionDuration));
+            StartCoroutine(TransitionLerp(-0.1f, 1f, transitionDuration, callback));
         }
 
-        public IEnumerator TransitionLerp(float a, float b, float duration)
+        public IEnumerator TransitionLerp(float a, float b, float duration, Action callback = null)
         {
             InTransition = true;
             float time = 0;
@@ -55,11 +55,12 @@ namespace TMKOC.Reusable
             }
             transitionMat.SetFloat("_Radius", b);
             InTransition = false;
+            callback?.Invoke();
         }
 
 
     }
 
 
-   
+
 }
