@@ -5,6 +5,7 @@ Shader "Unlit/CircleTransition"
         _MainTex ("Texture", 2D) = "white" {}
         _Radius("Radius", Range(1.0, -0.1)) = 0  
         _EdgeWidth("Edge Width", Range(0.0, 0.1)) = 0  
+        _Color("Color", Color) = (1, 1, 1)   
     }
     SubShader
     {
@@ -44,6 +45,7 @@ Shader "Unlit/CircleTransition"
             float4 _MainTex_ST;
             float _Radius;
             float _EdgeWidth;
+            float4 _Color;
 
             v2f vert (appdata v)
             {
@@ -68,7 +70,7 @@ Shader "Unlit/CircleTransition"
 
                 clip(alpha);
                 
-                return float4(1, 1, 1, alpha);
+                return float4(_Color.rgb, alpha);
                 
                 // if(distance < _Radius)   // noob way 
                 // {

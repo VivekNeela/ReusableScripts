@@ -13,6 +13,7 @@ namespace TMKOC.Reusable
         [SerializeField] private RectTransform circleRect;
         [SerializeField] private Material transitionMat;
         [SerializeField] private float transitionDuration;
+        [SerializeField] private Color color;
         [SerializeField] private bool inTransition;
         public bool InTransition { get => inTransition; set => inTransition = value; }
 
@@ -24,6 +25,7 @@ namespace TMKOC.Reusable
             //scale up circle to the screen...
             var side = canvasSize.x > canvasSize.y ? canvasSize.x : canvasSize.y;
             circleRect.sizeDelta = new Vector2(side, side);
+            transitionMat.SetColor("_Color", color);
 
             // PlayModeExitCallback.transitionMat = transitionMat;
         }
@@ -59,23 +61,5 @@ namespace TMKOC.Reusable
     }
 
 
-    // [InitializeOnLoad]
-    // public class PlayModeExitCallback
-    // {
-    //     public static Material transitionMat;
-
-    //     static PlayModeExitCallback()
-    //     {
-    //         EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
-    //     }
-
-    //     private static void OnPlayModeStateChanged(PlayModeStateChange state)
-    //     {
-    //         if (state == PlayModeStateChange.ExitingPlayMode)
-    //         {
-    //             Debug.Log("Exiting Play Mode!");
-    //             transitionMat.SetFloat("_Radius", 1);   //just needed to do this on exit...
-    //         }
-    //     }
-    // }
+   
 }
