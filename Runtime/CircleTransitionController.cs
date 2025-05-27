@@ -20,6 +20,8 @@ namespace TMKOC.Reusable
 
         private void Start()
         {
+            //keeping the circle open at start
+            transitionMat.SetFloat("_Radius", 1);
             //some random ass scaling logic below dosent makes much sense, just wanted to try this...
             var canvasSize = canvas.GetComponent<RectTransform>().sizeDelta;
             //scale up circle to the screen...
@@ -27,7 +29,6 @@ namespace TMKOC.Reusable
             circleRect.sizeDelta = new Vector2(side, side);
             transitionMat.SetColor("_Color", color);
 
-            // PlayModeExitCallback.transitionMat = transitionMat;
         }
 
 
