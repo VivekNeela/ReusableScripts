@@ -11,8 +11,11 @@ namespace TMKOC.Reusable
         [SerializeField] private bool isPlaying;
         public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
 
-
-        private void Update() => IsPlaying = audioSource.isPlaying;
+        private void Update()
+        {
+            if (audioSource != null)
+                IsPlaying = audioSource.isPlaying;
+        }
 
         public void PlayOnce(AudioClip clip, Action nextClip = null)
         {
