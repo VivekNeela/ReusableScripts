@@ -80,7 +80,7 @@ namespace TMKOC.Reusable
         }
 
         //only for playing sfx clips
-        public void PlaySfxClip(AudioClip clip, Action nextClip)
+        public void PlaySfxClip(AudioClip clip, Action nextClip = null)
         {
             // stopPlaying = false;
             if (clip == null)
