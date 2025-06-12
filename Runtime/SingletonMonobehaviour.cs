@@ -1,10 +1,8 @@
 
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TMKOC.Reusable
 {
-    //this is a reusable script...
     public class SingletonMonobehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {
         private static T _instance;
@@ -34,12 +32,14 @@ namespace TMKOC.Reusable
 
                     if (_instance == null)
                     {
-                        GameObject singletonObject = new GameObject(typeof(T).Name);
-                        _instance = singletonObject.AddComponent<T>();
+                        // GameObject singletonObject = new GameObject(typeof(T).Name);
+                        // _instance = singletonObject.AddComponent<T>();
 
                         //do we need to do this here???
                         // DontDestroyOnLoad(singletonObject);
 
+                        Debug.LogWarning($"[Singleton] No instance of {typeof(T)} found in the scene.");
+                        return null;
 
                     }
                 }
