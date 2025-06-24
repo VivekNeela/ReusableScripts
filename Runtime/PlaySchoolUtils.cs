@@ -18,8 +18,8 @@ namespace TMKOC.Reusable
 
             if (!PlayerPrefs.HasKey(key))
             {
-                Debug.LogWarning($"PlayerPrefs does not contain key '{key}'. Returning default Language.");
-                return default; // Or choose a specific fallback like Language.English
+                Debug.LogWarning($"PlayerPrefs does not contain key '{key}'. Returning default Language (English).");
+                return Language.EnglishUS; // Or choose a specific fallback like Language.English
             }
 
             var languageString = PlayerPrefs.GetString(key);
@@ -44,6 +44,7 @@ namespace TMKOC.Reusable
             else
                 throw new ArgumentException($"'{value}' is not a valid value for enum {typeof(T)}.");
         }
+
 
 
 
