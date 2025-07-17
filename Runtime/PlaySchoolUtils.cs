@@ -46,54 +46,18 @@ namespace TMKOC.Reusable
         }
 
 
-        /*
 
-                /// <summary>
-                /// Sets the language for the game  
-                /// </summary>
-                public static void SetLanguageData<T>(TMKOC.Reusable.Language currentLanguage, ref T currentAudiodata) where T : ScriptableObject
-                {
-                    // T currentAudiodata = null;
-
-                    switch (currentLanguage)
-                    {
-                        case TMKOC.Reusable.Language.Hindi:
-                            currentAudiodata = soundDataSO_Hindi;
-                            break;
-                        case TMKOC.Reusable.Language.EnglishUS:
-                            currentAudiodata = soundDataSO_English;
-                            break;
-                        case TMKOC.Reusable.Language.Tamil:
-                            currentAudiodata = soundDataSO_English;  //not done
-                            break;
-                        case TMKOC.Reusable.Language.Marathi:
-                            currentAudiodata = soundDataSO_Marathi;
-                            break;
-                        case TMKOC.Reusable.Language.Bengali:    //didnt receive the audio for bengali yet...
-                            currentAudiodata = soundDataSO_Bengali;
-                            break;
-                        case TMKOC.Reusable.Language.French:
-                            currentAudiodata = soundDataSO_English;  //not done
-                            break;
-                        case TMKOC.Reusable.Language.Malayalam:
-                            currentAudiodata = soundDataSO_English;  //not done
-                            break;
-                        default:
-                            currentAudiodata = soundDataSO_English;
-                            break;
-                    }
-                }
-
-        */
-
-        public static Dictionary<TKey, TValue> AddToDictionary<TKey, TValue>(ref Dictionary<TKey, TValue> dict, TKey language, TValue audioData)
-        where TKey : Enum
-        where TValue : ScriptableObject
+        /// <summary>
+        /// Sets the language for the game  
+        /// </summary>
+        public static void SetLanguageData<T>(TMKOC.Reusable.Language currentLanguage, ref Dictionary<Language, ScriptableObject> dict, ref T currentAudiodata)
+        where T : ScriptableObject
         {
-            // Dictionary<TKey, TValue> dict = new Dictionary<TKey, TValue>();
-            dict.Add(language, audioData);
-            return dict;
+            currentAudiodata = (T)dict[currentLanguage];
         }
+
+
+
 
 
 
