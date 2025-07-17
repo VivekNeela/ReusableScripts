@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 namespace TMKOC.Reusable
 {
+    [Serializable]
     public enum Language
     {
         None,

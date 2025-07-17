@@ -31,7 +31,6 @@ namespace TMKOC.Reusable
 
         }
 
-
         public void CloseCircle(Action callback = null)
         {
             StartCoroutine(TransitionLerp(1, -0.1f, transitionDuration, callback));
@@ -40,6 +39,11 @@ namespace TMKOC.Reusable
         public void OpenCircle(Action callback = null)
         {
             StartCoroutine(TransitionLerp(-0.1f, 1f, transitionDuration, callback));
+        }
+
+        public void SetRadius(float radius)
+        {
+            transitionMat.SetFloat("_Radius", radius);
         }
 
         public IEnumerator TransitionLerp(float a, float b, float duration, Action callback = null)
