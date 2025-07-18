@@ -46,14 +46,23 @@ namespace TMKOC.Reusable
         }
 
 
-
         /// <summary>
         /// Sets the language for the game  
         /// </summary>
         public static void SetLanguageData<T>(TMKOC.Reusable.Language currentLanguage, ref Dictionary<Language, ScriptableObject> dict, ref T currentAudiodata)
         where T : ScriptableObject
         {
-            currentAudiodata = (T)dict[currentLanguage];
+            if (dict.TryGetValue(currentLanguage, out ScriptableObject rawData))
+            {
+                if (rawData is T typedData)
+                    currentAudiodata = typedData;
+                else
+                    Debug.LogError($"Data for {currentLanguage} is not of type {typeof(T)}.");
+            }
+            else
+            {
+                Debug.LogError($"No audio data found for {currentLanguage}.");
+            }
         }
 
 
