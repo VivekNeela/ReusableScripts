@@ -13,6 +13,8 @@ namespace TMKOC.Reusable
         Bengali,
         French,
         Malayalam,
+        Punjabi,
+
 
     }
 }

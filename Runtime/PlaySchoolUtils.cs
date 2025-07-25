@@ -52,6 +52,13 @@ namespace TMKOC.Reusable
         public static void SetLanguageData<T>(TMKOC.Reusable.Language currentLanguage, ref Dictionary<Language, ScriptableObject> dict, ref T currentAudiodata)
         where T : ScriptableObject
         {
+            // just in case the language is set to none for some reason...
+            if (currentLanguage == Language.None)
+            {
+                Debug.LogError("Current language is set to None. Cannot set audio data.");
+                return;
+            }
+
             if (dict.TryGetValue(currentLanguage, out ScriptableObject rawData))
             {
                 if (rawData is T typedData)
