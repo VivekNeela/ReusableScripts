@@ -32,5 +32,38 @@ public static class RandomUtils
         return list[index];
     }
 
-    
+
+
+    public class NonRepeatingRandom<T>
+    {
+        private int lastIndex = -1;
+
+        public T GetRandom(List<T> list)
+        {
+            if (list == null || list.Count == 0)
+                throw new System.Exception("List is empty!");
+
+            int index;
+
+            if (list.Count == 1)
+            {
+                index = 0;
+            }
+            else
+            {
+                do
+                {
+                    index = Random.Range(0, list.Count);
+                }
+                while (index == lastIndex);
+            }
+
+            lastIndex = index;
+            return list[index];
+        }
+    }
+
+
+
+
 }
